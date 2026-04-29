@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import BlogPostsPage from './pages/BlogPostsPage';
 import IndividualPostsPage from './pages/IndividualPostPage';
 import ContactPage from './pages/ContactPage';
+import LoginPage from "./pages/LoginPage";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<BlogPostsPage />} />
         <Route path="/post/:id" element={<IndividualPostsPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/login" element={<LoginPage />} />
     </Routes>
     <Footer />
     </>
