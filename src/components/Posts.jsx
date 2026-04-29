@@ -59,15 +59,8 @@ export default function Posts({ comments, setComments, postId}) {
   return (
     <div className="comment-box">
       <h3>Add a Comment</h3>
-
+      <p><strong>{user.username}: </strong></p>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Your name"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
-
         <textarea
           placeholder="Your comment"
           value={comment}
