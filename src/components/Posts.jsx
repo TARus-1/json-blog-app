@@ -1,19 +1,27 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function Posts({ comments, setComments, postId}) {
-  const [name, setName] = useState("");
+  //const [name, setName] = useState("");
   const [comment, setComment] = useState("");
+  const { user } = useAuth();
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    if (name.trim() === "" || comment.trim() === "") {
+
+    if (!user) {
+      return;
+    }
+
+    if (/*name.trim() === "" || */comment.trim() === "") {
       return;
     }
 
     const newComment = {
       id: Date.now(),
-      name: name,
+      name: user.username,
       body: comment,
     };
 
@@ -35,6 +43,16 @@ export default function Posts({ comments, setComments, postId}) {
       });
   }
   
+    if (!user) {
+      return (
+        <div >
+          <h3>Add a Comment</h3>
+          <p>
+            You must <Link to="/login">login</Link> before leaving a comment.
+          </p>
+        </div>
+      );
+    }
 
 
 
