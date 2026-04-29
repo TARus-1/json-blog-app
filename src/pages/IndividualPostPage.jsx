@@ -13,27 +13,34 @@ export default function IndividualPostPage() {
 
   
   useEffect(() => {
-    if (postId > 100) {
-      const localPost = posts.find((p) => p.id === postId);
-      setPost(localPost);
-      setLoading(false);
-    } else {
-      fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-        .then((response) => response.json())
-        .then((data) => {
-          setPost({
-            ...data,
-            author: "JSON Username",
-            date: "2026-04-02",
+  if (postId > 100) {
+    const localPost = posts.find((p) => p.id === postId);
+    setPost(localPost);
+    setLoading(false);
+  } else {
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+      .then((response) => response.json())
+      .then((data) => {
+        return fetch("https://jsonplaceholder.typicode.com/users")
+          .then((response) => response.json())
+          .then((userData) => {
+            const user = userData.find((uName) => uName.id === data.userId);
+
+            setPost({
+              ...data,
+              author: user ? user.username : "Anonymous User",
+              date: "2026-04-02",
+            });
+
+            setLoading(false);
           });
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error("Error fetching post:", error);
-          setLoading(false);
-        });
-    }
-  }, [postId]);
+      })
+      .catch((error) => {
+        console.error("Error fetching post:", error);
+        setLoading(false);
+      });
+  }
+}, [postId]);
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
