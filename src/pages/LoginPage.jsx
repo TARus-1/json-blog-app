@@ -21,9 +21,20 @@ export default function LoginPage() {
 
     return (
         <main>
-            <div>
-                <h2>Login</h2>
+            <div className="post=entry">
+                <h3>Login</h3>
                 <p>You must log in to add comments!</p>
+
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        placeholder="Enter username"
+                        value={username}
+                        onChange={(event) => setUsername(event.target.value)}
+                    />
+                    <button type="submit">Login</button>
+                </form>
+            
             </div>
         </main>
     )
