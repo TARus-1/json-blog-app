@@ -45,7 +45,7 @@ export default function Posts({ comments, setComments, postId}) {
   
     if (!user) {
       return (
-        <div >
+        <div className= "add-comments">
           <h3>Add a Comment</h3>
           <p>
             You must <Link to="/login">login</Link> before leaving a comment.

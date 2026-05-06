@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa+One&family=Inter:wght@400;500;600;700&display=swap');
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -60,7 +61,7 @@ body {
   color: #08060d;
 }
 nav {
-  background-color: #1f3a5f;
+  background-color: #b483aa;
   color: white;
   padding: 20px;
   text-align: center;
@@ -75,24 +76,50 @@ nav h2 {
   margin: 0 15px;
   font-size: 18px;
 }
+.title-of-site{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+img{
+  width: 100px;
+  height: auto;
+  padding-left: 20px;
+  margin-top: -45px;
+}
 
 .post-entry {
   width: 70%;
   margin: 30px auto;
-  background-color: white;
+  background-color: #c3f2c7;
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
-
+.post-entry p{
+ padding-bottom: 5px;
+}
 .post-entry h2{
-  color: blue;
+  font-size: 30px;
+  color: rgb(19, 93, 25);
+  text-decoration: underline;
+  padding-bottom: 15px;
 }
 .post-entry h3 {
   margin-top: 0;
-  color: blue;
+  color: rgb(19, 93, 25);
 }
 
+.add-comments{
+  padding-top: 15px;
+  text-decoration: underline;
+}
+.comments-list{
+  padding-top: 30px;
+  
+}
 input {
   width: 250px;
   padding: 10px;
@@ -111,7 +138,8 @@ input, textarea{
 button {
   padding: 10px 16px;
   margin-left: 20px;
-  background-color: #1f3a5f;
+  margin-right: 20px;
+  background-color: #842578;
   color: white;
   border: none;
   border-radius: 6px;
@@ -131,6 +159,13 @@ nav a{
 }
 nav a:hover{
   color: purple;
+}
+
+.read-link{
+  color: #9d2f8d;
+}
+.post-entry a:hover {
+  text-decoration: underline;
 }
 footer {
   background-color: #1f3a5f;
@@ -160,9 +195,10 @@ h2 {
 }
 
 h1 {
-  font-size: 56px;
+  font-size: 75px;
   letter-spacing: -1.68px;
   margin: 32px 0;
+  font-family: 'Changa One';
   @media (max-width: 1024px) {
     font-size: 36px;
     margin: 20px 0;
